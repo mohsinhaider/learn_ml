@@ -11,3 +11,15 @@ from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values="NaN", strategy="mean", axis=0)
 imputer = imputer.fit(f_matr[:, [1,2]])
 f_matr[:, [1,2]] = imputer.transform(f_matr[:, [1,2]])
+
+# Categorial Data splitting
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
+country_encoder = LabelEncoder()
+f_matr[:, 0] = country_encoder.fit_transform(f_matr[:, 0])
+
+onehotencoder = OneHotEncoder(categorical_features=[0])
+features_matrix = onehotencoder.fit_transform(features_matrix).toarray()
+
+response_encoder = LabelEncoder()
+r_matr = response_encoder.fit_transform(r_matr)
