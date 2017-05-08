@@ -23,3 +23,8 @@ features_matrix = onehotencoder.fit_transform(features_matrix).toarray()
 
 response_encoder = LabelEncoder()
 r_matr = response_encoder.fit_transform(r_matr)
+
+# Separating training and testing set
+from sklearn.preprocessing import train_test_split
+f_matr_train, f_matr_test,\
+r_matr_train, r_matr_test = train_test_split(f_matr, r_matr, test_size=0.2, random_state=0)
