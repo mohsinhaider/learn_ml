@@ -28,3 +28,9 @@ r_matr = response_encoder.fit_transform(r_matr)
 from sklearn.preprocessing import train_test_split
 f_matr_train, f_matr_test,\
 r_matr_train, r_matr_test = train_test_split(f_matr, r_matr, test_size=0.2, random_state=0)
+
+# Feature Scaling -- age and salary columns should be same range
+from sklearn.preprocessing import StandardScaler
+standard_scaler = StandardScaler()
+f_matr_train = standard_scaler.fit_transform(f_matr_train)
+f_matr_test = standard_scaler.fit_transform(f_matr_test)
