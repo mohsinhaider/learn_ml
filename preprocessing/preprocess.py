@@ -19,7 +19,7 @@ country_encoder = LabelEncoder()
 f_matr[:, 0] = country_encoder.fit_transform(f_matr[:, 0])
 
 onehotencoder = OneHotEncoder(categorical_features=[0])
-features_matrix = onehotencoder.fit_transform(features_matrix).toarray()
+f_matr = onehotencoder.fit_transform(features_matrix).toarray()
 
 response_encoder = LabelEncoder()
 r_matr = response_encoder.fit_transform(r_matr)
