@@ -1,0 +1,91 @@
+Linear Regression (Univariate or Multivariate) Assumptions
+—————————————————————————————
+Linear relationship.
+Multivariate normality.
+No or little multicollinearity.
+No auto-correlation.
+Homoscedasticity.
+
+
+
+Building a Model (Step by Step):
+--------------------------------
+
+We have a lot more potential predictors that tell us the independent variable.
+
+x1 = R&D spend
+x2 = administration
+x3 = Marketing
+x4 = State
+
+... That's a lot of variables. 
+
+Two things:
+1. Let's throw seemingly features away due to the garbage in and garbage out principle.
+2. Harder to explain your model to stakeholders of project
+
+
+** 5 Methods to Building a Model **
+1. All-in
+2. Backward Elimination (aka Stepwise Regression)
+3. Forward Selection (aka Stepwise Regression)
+4. Bidirectional Elimination (aka Stepwise Regression, more often)
+5. Score Comparison
+
+It seems like these are principles to which you deal with your variables. 
+
+#1 ALL-IN method -- Building a Model Method #1
+- Idea: Use ALL of the features
+- We just discussed you shouldn't do that... but you might have prior knowledge and you know this will probably work or someone told you that it's a good idea to do this. 
+- It's not your decision typically to do this, company rules etc etc
+- Sometimes used for preparation for Backwards Elimination
+
+#2 Backwards Elimination -  Building a Model Method #2
+- Idea: Process of removing feature(s) using SL and highest P-values, until even the highest P-valued feature is less than the SL
+
+	STEP1: Select a significance level to stay in the model
+			(ex: SL = 0.05)
+	STEP2: Fit the full model with all possible features
+	STEP3: Consider feature with HIGHEST P-value. If P > SL, go to 		   STEP4, otherwise, KEEP IT and you're done.
+	STEP4: Remove that predictor and build the model without it.
+			Now, GO BACK to STEP3.
+
+#3 Forward Selection - Building a Model Method #3
+- Idea: Build model one feature at a time, stopping when a feature that is added to the model contributes a P-Level > SL
+
+	STEP1: Select a significance level to stay in the model
+			(ex: SL = 0.05)
+	STEP2: Fit all possible **univariate** linear regression models.
+		   Pick the model with the lowest P-value feature
+	STEP3: Fit all possible possibles with one extra feature added
+		   to the one you already have.
+	STEP4: Consider the model with the newly added feature that has 	   the lowest P-value. If P < SL, go to STEP 3. Otherwise,
+		   you're done.
+    NOTE: You cycle back removing the variable that caused the P > SL so that you don't have an insignificant variable in the model.
+
+#4 Bidirectional Elimination
+Idea: Forwards Selection and then Backwards Elimination
+
+	STEP1: Select SLENTER and SLSTAY
+			(ex SLENTER = 0.05 and SLSTAY = 0.05)
+	STEP2: Perform ONE step of Forward Selection (adding features with
+		   P-Level < SENTER)
+	STEP 3: Perform ALL steps of Backward Selection (removing features 		with P-Level > SLSTAY)
+	STEP 4: DONE (no features can leave and no features can enter)
+
+#5 All Possible Models (Not a good approach)
+	STEP 1: Select a criterion of goodness of fit
+	STEP 2: Construct all possible regression models 2^(features) - 1
+	STEP 3: Select the one with best possible criterion
+
+
+Multiple Linear Regression - Backward Elimination Preparation
+——————————————————————————————————————————————
+For Backward Elimination the basic goal is to start off with a hypothesis equation:
+h(X) = Θ0 + Θ1X1 + Θ2X2 + … + ΘNXN
+
+This is exactly what our hypothesis equation should look like. When we build the LinearRegression() model from sklearn.linear_model previously, there wasn’t any worry.
+
+However, now that we are using backwards elimination using statsmodel, it isn’t as aware as sklearn is about the fact that we’re not explicitly stating an x0. Backwards elimination will start looking at all of the features (x1, x2, x3…) and never notice there is no x0 because we never explicitly said there was (in the matrix). Thus, it is required to add a column of 1’s to the matrice such that the backwards elimination technique considers it when choosing the feature with highest P-value to eliminate
+
+
