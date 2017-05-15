@@ -1,3 +1,5 @@
+''' Multivariate Linear Regression using all features (all-in approach) '''
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,3 +37,5 @@ regressor.fit(X_train, Y_train)
 
 # Predicting test set results
 Y_test_predictions = regressor.predict(X_test)
+
+# Would need countour plot for multi-dimensional plotting
