@@ -1,0 +1,35 @@
+Polynomial Regression, also known as "Polynomial Linear Regression"
+
+Example given: single feature, using different powers of it.
+
+We have a human aspect when using polynomial regression. We need to look at what
+the training set looks like it would fit. If it looks like the best fit would
+be a polynomial function, then indeed that is what we will pick.
+
+      X              Y
+------------     ---------
+    1               110
+    2               130
+    3               160
+    4               200
+    
+This training data implies a non-linear function that would fit it best. This
+is a case where we would use polynomial regression.
+
+y = θ0 + θ1*X1 <--- Linear
+
+However, we can use our features to our own advantage. We can quite literally
+make our features of the ones we already have.
+
+      X         X1^2         Y
+------------  -------    ---------
+    1           1            110
+    2           4            130
+    3           9            160
+    4          16            200
+    
+
+y = θ0 + θ1*X1 + θ2*(X1)^2
+
+Using the machinery of linear regression, we are now able to introduce
+polynomial regression.
