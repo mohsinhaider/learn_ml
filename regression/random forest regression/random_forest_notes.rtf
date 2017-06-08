@@ -1,0 +1,25 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Random Forest Regression and Ensemble Learning\
+\
+We will look at Random Forest applied to regression trees. RF is a version of ensemble learning.\
+\
+Ensemble learning - take the application of the same algorithm multiple times (or the combination of multiple algorithms) to make predictions and learn from data.\
+\
+Imagine using Random Forest regression with decision tree regression, a learning algorithm that runs across one version of a tree. Random Forest will essentially build multiple, different decision tress based off of choosing a random \'93k\'94 points from the dataset, and then when a new variable \'93X\'94 comes in to be predicted, it will run X through all of the different models and take the average across those models and give you the predicted value \'97 the intuition behind this approach is that there will be very high (and therefore, low) estimates that will be completely off, and there will be estimates closer to the actual, and so the summation and then average of all of these predictions will \'93naturally\'94 get us to a value is that most sensible.\
+\
+\
+Random Forest Regression STEPS:\
+\
+1. Pick \'93k\'94 random data points for the training set\
+2. Build a Decision Tree based off of these k data points.\
+3. Choose number of N tress you want to build (~500) and repeat steps 1 and 2, creating\
+that number of decision trees \'97 by the end, you have a \'93forest\'94 of these (decision) regression trees.\
+4. To predict a value \'93X\'94, make all of your N trees predict the value and then return the average across the calculation of all of the trees.\
+\
+\
+Note: by adding more trees (n_estimators) we will not necessarily gain a lot more steps. We will probably gain some every time we increase, but up until a point, only. At some point, you will keep adding trees but more steps won\'92t show simply because we will so many models that have exhausted information entropy\'92s hungriness for information gain. There won\'92t be more of the N models agreeing on a small interval because we will have reached the smallest possible interval to agree on amongst the models that exhausted information gain, hence, no more steps can be added if there are no more intervals to add.}
