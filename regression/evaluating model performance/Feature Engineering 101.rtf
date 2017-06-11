@@ -1,0 +1,16 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Feature Engineering 101\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Previously, we looked at a \'93Building Models\'94 lecture where we discussed how to approach selecting features for our model. Topics included backwards elimination and forward selection to help us remove or include features that will hurt/help us.\
+\
+In the scenario of backwards elimination, we start with a model with all of the features fitted. Then, we look at the P-values for all of them, and remove the highest one that does not equal our set significance level. Keep doing this until we are left with features that all have P Lev < S Lev.\
+\
+Sometimes this is problematic because we could have a variable that clearly has some sort of positive significance, but just because its P-value may be 0.01 value greater than the S-level, we\'92d have to remove it.\
+\
+We need more intuition, and for that we apply the R2 and Adjusted R2 logic. Instead, look as if adjusted R2 is increasing as you decrease feature count. If it\'92s increasing, that is a good sign to keep the variable. Note the R2 might decrease, which is fine as it only increases if you add variables.}

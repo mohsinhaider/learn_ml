@@ -1,0 +1,24 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Overfitting is the concept that our learned hypothesis function has a low squared error cost function result but due to so many features, it fails to generalize well with new test set examples.\
+\
+To solve overfitting, we propose two methods:\
+\
+1. Reduce the number of features\
+2. Regularization\
+\
+Regularization is the act of ameliorating the effect of overfitting by reducing the weights of the parameters of our hypothesis function.\
+\
+We reduce the weights by adding a \'93regularization expression\'94. This expression comes in 3 forms:\
+\
+1. Ridge Regression\
+2. Elastic Net\
+3. Lasso\
+\
+In Ridge Regression, we add lambda * summation(for each param, square it)\
+\
+This term artificially increases the cost function, forcing gradient descent to select a lower value of the current parameter we are updating, and thus leading to a simpler hypothesis function that is not overfitted.}
